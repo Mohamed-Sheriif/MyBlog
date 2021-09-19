@@ -1,0 +1,28 @@
+﻿@model news
+@{
+    ViewBag.Title = "details";
+}
+
+<div style="width: 100%; margin-bottom: 35px; ">
+    <h2 style="text-align:center ; font-weight:bold ; color:darkslategray ; font-family:Candara">@Model.title</h2>
+</div>
+
+<div style="text-align: center; margin-bottom: 30px">
+    <img src="~/attach/newsphoto/@Model.photo" width="80%" />
+</div>
+
+<div style="font-family: Candara; font-size: 30px; color:darkslateblue ; margin-bottom:30px">
+    @Model.des
+</div>
+
+<div style="width:100% ; font-family:Candara ; font-size:15px ; color:slategray; display:flex">
+    <div style="width:20%">
+        Catalog : @Model.catalog.name
+    </div>
+    <div style="width:20%">
+        Date : @Model.date
+    </div>
+    <div style="width:20%">
+        Author : @Html.ActionLink($"{Model.user.username}", "Fprofile", "user" , new {id=Model.user_id })
+    </div>
+</div>

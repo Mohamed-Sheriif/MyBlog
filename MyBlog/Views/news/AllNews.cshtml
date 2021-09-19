@@ -1,0 +1,43 @@
+﻿@model List<news>
+@{
+    ViewBag.Title = "AllNews";
+}
+
+
+@foreach (var item in Model)
+{
+    <div style="border: 3px solid rgb(149, 158, 150); padding: 15px; border-radius: 15px; color: darkslategray; font-family: Candara">
+        
+        <div style="width: 100%; margin-bottom: 35px; ">
+            <h2 style="text-align:center ; font-weight:bold ">@item.title</h2>
+        </div>
+
+        <div style="display:flex ; width:100% ;">
+           
+            <div style="width:70% ; font-size:18px ; color:slategray">
+                @item.bref
+                @Html.ActionLink("Read more....", "details", new { id = item.user_id }, new { @class = "click" })
+            </div>
+            
+            <div style="width:30% ; margin:20px"><img src="~/attach/newsphoto/@item.photo" width="200px" height="200px" /></div>
+        
+        </div>
+        
+        <div style="display:flex ; width:100% ; margin-bottom:50px">
+            <div style="width:70%">
+                    <table style="width:100%">
+                        <tr>
+                            <td>Catalog : @item.catalog.name  </td>
+                            <td>Date : @item.date  </td> 
+                            <td>Author : <a href="/user/Fprofile/@item.user_id" >@item.user.username</a>
+                            @*@Html.ActionLink($"{item.user.username}", "Fprofile", "user" , new { id = item.user_id })*@</td>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+    
+    </div>
+
+    <hr />
+}
+

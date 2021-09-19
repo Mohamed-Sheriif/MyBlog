@@ -1,0 +1,29 @@
+﻿@model user
+@{
+    ViewBag.Title = "Login";
+}
+
+<div style="width: 50%; margin-bottom: 20px; color: darkslategray">
+    <h2 style="text-align:center ; font-family:Candara">Welcome To Login</h2>
+</div>
+
+<form method="post">
+    <table style="width: 80%; font-family: Candara; font-weight: 400 ">
+        <tr>
+            <td>@Html.LabelFor(n => n.email)</td>
+            <td>@Html.TextBoxFor(n => n.email, new { @class = "form-control" })</td>
+            <td>@Html.ValidationMessageFor(n => n.email, null, new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(n => n.password)</td>
+            <td>@Html.PasswordFor(n => n.password, new { @class = "form-control" })</td>
+            <td>@Html.ValidationMessageFor(n => n.password, null, new { @class = "text-danger" })</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Login" class="btn btn-info" /></td>
+            <td class="text-danger">@ViewBag.status  </td>
+        </tr>
+    </table>
+</form>
+

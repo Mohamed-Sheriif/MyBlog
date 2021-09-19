@@ -1,0 +1,30 @@
+﻿@model List<news>
+@{
+    ViewBag.Title = "MyNews";
+}
+
+    @foreach (var item in Model)
+    {
+        <div style="border: 3px solid rgb(149, 158, 150); padding: 15px; border-radius: 15px">
+            <div style="width: 100%; margin-bottom: 35px; ">
+                <h2 style="text-align:center ; font-weight:bold ; color:darkslategray ; font-family:Candara">@item.title</h2>
+            </div>
+
+            <div style="display:flex ; width:100% ;">
+                <div style="width:70% ; font-size:18px ; color:slategray">@item.bref</div>
+                <div style="width:30% ; margin:15px"><img src="~/attach/newsphoto/@item.photo" width="200px" height="200px" /></div>
+            </div>
+            <div style="display:flex ; width:100% ; margin-bottom:50px">
+                <div style="width:70%"> Catalog : @item.catalog.name | Date : @item.date</div>
+                <div style="width:30%">
+                    @Html.ActionLink("Read more....", "details", new { id = item.user_id }, new { @class = "click" }) |
+                    @Html.ActionLink("Edit", "Edit", "news", new { id = item.user_id }, new { @class = "click" }) |
+                    @Html.ActionLink("Delete", "Delete", "news", new { id = item.user_id }, new { @class = "click" })
+                </div>
+            </div>
+        </div>
+
+        <hr />
+    }
+
+

@@ -1,0 +1,23 @@
+﻿@model user
+@{
+    ViewBag.Title = "Fprofile";
+}
+
+<div style="width: 50%; margin-bottom: 20px; color: darkslategray">
+    <h2 style="text-align:center ; font-family:Candara">Welcome @Model.username</h2>
+</div>
+
+
+<div style="display: flex; width:90%">
+    <div style="width:50% ; font-family:Candara ; font-size:20px ; font-weight:400 ; border:5px solid black ; border-radius:20px ; padding:15px">
+        <div style="display:block"><strong>UserName : </strong>  @Model.username</div><br /><hr />
+        <div style="display:block"><strong>Address : </strong>  @Model.address</div><br /><hr />
+        <div style="display:block"><strong>E-mail : </strong>  @Model.email</div><br /><hr />
+        <div style="display:block"><strong>Age : </strong>  @Model.age</div>
+    </div>
+    <div style="width:50%">
+        <img src="~/attach/@Model.photo" width="200px" />
+    </div>
+</div>
+
+
